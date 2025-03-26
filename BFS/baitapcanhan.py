@@ -27,10 +27,10 @@ TEXT_COLOR = (255, 255, 255)
 DEFAULT_BUTTON_COLOR = (255, 0, 0)
 SELECTED_BUTTON_COLOR = (0, 255, 0)
 
-ALGO_NAMES = ["BFS", "DFS", "IDS","UCS","A*","Greedy"]
+ALGO_NAMES = ["BFS", "DFS", "IDS","UCS","A*","Greedy","IDA*"]
 algo_selected = None
 
-INITIAL_STATE = [[2, 6, 5], [0, 7, 8], [4, 1, 3]]
+INITIAL_STATE = [[2, 6, 5], [0, 8,7], [4, 3,1]]
 GOAL_STATE = [[1, 2, 3], [4, 5, 6], [7, 8, 0]]
 current_state = [row[:] for row in INITIAL_STATE]
 
@@ -141,9 +141,8 @@ def heuristic(state):
     return distance
 
 def a_star_solve():
-    priority_queue = [(heuristic(INITIAL_STATE), 0, INITIAL_STATE, [])]  # (f, g, state, path)
+    priority_queue = [(heuristic(INITIAL_STATE), 0, INITIAL_STATE, [])]  
     visited = set()
-
     while priority_queue:
         _, g, state, path = heapq.heappop(priority_queue)
 
@@ -161,6 +160,7 @@ def a_star_solve():
             heapq.heappush(priority_queue, (f, new_g, neighbor, path + [neighbor]))
 
     return []
+    
 
 def greedy_solve():
     priority_queue = [(heuristic(INITIAL_STATE), INITIAL_STATE, [])]  # (h, state, path)
@@ -181,6 +181,41 @@ def greedy_solve():
             heapq.heappush(priority_queue, (heuristic(neighbor), neighbor, path + [neighbor]))
 
     return []
+
+def ida_star_solve():
+     """Giải bài toán 8-puzzle bằng thuật toán IDA*."""
+     def search(state, g, threshold, path):
+        f = g + heuristic(state)
+        if f > threshold:
+            return f, None
+        if state == GOAL_STATE:
+            return None, path
+        min_threshold = float('inf')
+        state_tuple = tuple(tuple(row) for row in state)
+        visited.add(state_tuple)
+
+        for neighbor in get_neighbors(state):
+            neighbor_tuple = tuple(tuple(row) for row in neighbor)
+            if neighbor_tuple not in visited:
+                new_g = g + 1
+                temp_threshold, result = search(neighbor, new_g, threshold, path + [neighbor])
+                if result is not None:
+                    return None, result
+                min_threshold = min(min_threshold, temp_threshold)
+
+        visited.remove(state_tuple)
+        return min_threshold, None
+
+     threshold = heuristic(INITIAL_STATE)
+     path = []
+     while True:
+        visited = set()
+        temp_threshold, result = search(INITIAL_STATE, 0, threshold, path)
+        if result is not None:
+            return result
+        if temp_threshold == float('inf'):
+            return []
+        threshold = temp_threshold
 
 def draw_elements():
     screen.fill(BACKGROUND_COLOR)
@@ -207,7 +242,7 @@ def draw_elements():
                 screen.blit(font.render(str(value), True, TEXT_COLOR), (330 + col * 70, 365 + row * 70))
 
     # Nút chọn thuật toán
-    x_pos = 100
+    x_pos = 50
     for algo in ALGO_NAMES:
         button_color = SELECTED_BUTTON_COLOR if algo_selected == algo else DEFAULT_BUTTON_COLOR
         pygame.draw.rect(screen, button_color, (x_pos, 750, 70, 30))
@@ -226,7 +261,7 @@ while running:
             running = False
         elif event.type == pygame.MOUSEBUTTONDOWN:
             x, y = event.pos
-            x_pos = 100
+            x_pos = 50
             for algo in ALGO_NAMES:
                 if x_pos <= x <= x_pos + 70 and 750 <= y <= 780:
                     algo_selected = algo
@@ -245,6 +280,8 @@ while running:
                     solution_steps = a_star_solve()
                 elif algo_selected == "Greedy":
                     solution_steps = greedy_solve()
+                elif algo_selected == "IDA*":
+                    solution_steps = ida_star_solve()
                 for step in solution_steps:
                     current_state = step
                     draw_elements()
@@ -255,3 +292,4 @@ while running:
 
 pygame.quit()
 sys.exit()
+
