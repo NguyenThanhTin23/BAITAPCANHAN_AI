@@ -28,7 +28,7 @@ BORDER_RADIUS = 10
 BUTTON_WIDTH, BUTTON_HEIGHT = 120, 40
 
 # Danh sách thuật toán
-algorithms = ["BFS", "DFS", "UCS", "IDS", "Greedy", "A*", "IDA*", "SHC", "S_AHC", "Stochastic", "SA", "BeamSearch", "AND-OR"]
+algorithms = ["BFS", "DFS", "UCS", "IDS", "Greedy", "A*", "IDA*", "SHC", "S_AHC", "Stochastic", "SA", "BeamSearch", "AND-OR", "Genetic"]
 selected_algorithm = None
 
 # Biến toàn cục để lưu thời gian và số bước
@@ -328,7 +328,7 @@ def s_ahc_solve(start_state, goal_state):
     def heuristic(state):
         """Hàm heuristic tính số ô sai vị trí."""
         return sum(
-            1 for i in range(3) for j in range(3) if state[i][j] != 0 and state[i][j] != goal_state[i][j]
+            1 for i in range(3) for j in range(3) if state[i][j] != 0 and  state[i][j] != goal_state[i][j]
         )
 
     current_state = start_state
@@ -458,11 +458,103 @@ def or_and_search(state, goal_state, get_successors, node_type='OR', visited=Non
 
     return None
 
+def genetic_algorithm_solve(start_state, goal_state, population_size=100, generations=100, mutation_rate=0.1):
+    def fitness(state):
+        """Hàm fitness tính số ô sai vị trí."""
+        return sum(
+            1 for i in range(3) for j in range(3) if state[i][j] != 0 and state[i][j] != goal_state[i][j]
+        )
+
+    def initialize_population():
+        """Khởi tạo quần thể ngẫu nhiên."""
+        population = []
+        for _ in range(population_size):
+            flattened = [i for row in goal_state for i in row]
+            random.shuffle(flattened)
+            individual = [flattened[i:i + 3] for i in range(0, len(flattened), 3)]
+            population.append(individual)
+        return population
+
+    def select_parents(population):
+        """Chọn lọc cha mẹ dựa trên fitness."""
+        population.sort(key=fitness)
+        return population[:2]  # Chọn 2 cá thể tốt nhất
+
+    def crossover(parent1, parent2):
+        """Lai ghép hai cá thể."""
+        child = [row[:] for row in parent1]
+        for i in range(3):
+            for j in range(3):
+                if random.random() > 0.5:
+                    child[i][j] = parent2[i][j]
+        return child
+
+    def mutate(individual):
+        """Đột biến một cá thể."""
+        if random.random() < mutation_rate:
+            x1, y1 = random.randint(0, 2), random.randint(0, 2)
+            x2, y2 = random.randint(0, 2), random.randint(0, 2)
+            individual[x1][y1], individual[x2][y2] = individual[x2][y2], individual[x1][y1]
+
+    # Khởi tạo quần thể
+    population = initialize_population()
+
+    for generation in range(generations):
+        # Nếu tìm thấy trạng thái đích, trả về đường đi
+        for individual in population:
+            if individual == goal_state:
+                return [start_state, individual]
+
+        # Chọn lọc và tạo thế hệ mới
+        parents = select_parents(population)
+        new_population = []
+        for _ in range(population_size // 2):
+            child1 = crossover(parents[0], parents[1])
+            child2 = crossover(parents[1], parents[0])
+            mutate(child1)
+            mutate(child2)
+            new_population.extend([child1, child2])
+        population = new_population
+
+    return []  # Trả về danh sách rỗng nếu không tìm thấy đường đi
+
+def sensorless_solve(start_state, goal_state):
+    """
+    Thuật toán Sensorless tìm kiếm trạng thái đích mà không biết vị trí chính xác của các ô.
+    """
+    def heuristic(state):
+        """Hàm heuristic tính số ô sai vị trí."""
+        return sum(
+            1 for i in range(3) for j in range(3) if state[i][j] != 0 and state[i][j] != goal_state[i][j]
+        )
+
+    # Khởi tạo tập hợp các trạng thái có thể
+    possible_states = {tuple(tuple(row) for row in start_state)}
+    path = []
+
+    while possible_states:
+        # Chọn trạng thái có heuristic tốt nhất
+        current_state = min(possible_states, key=heuristic)
+        path.append(current_state)
+        possible_states.remove(current_state)
+
+        if current_state == tuple(tuple(row) for row in goal_state):
+            return [list(map(list, state)) for state in path]  # Trả về đường đi
+
+        # Sinh các trạng thái hàng xóm
+        neighbors = set()
+        for state in possible_states:
+            for neighbor in get_neighbors([list(row) for row in state]):
+                neighbors.add(tuple(tuple(row) for row in neighbor))
+        possible_states = neighbors
+
+    return []  # Trả về danh sách rỗng nếu không tìm thấy đường đi
+
 # Ma trận trạng thái ban đầu và trạng thái đích
 original_state = [
      [1, 2, 3],
     [4, 5, 6],
-    [7, 0, 8]
+    [7,0,8]
 ]
 
 target_state = [
@@ -509,6 +601,9 @@ def randomize_matrix():
     original_state = [flattened[i:i + 3] for i in range(0, len(flattened), 3)]  # Chuyển về ma trận 3x3
     process_state = [row[:] for row in original_state]  # Đồng bộ process_state với original_state
   
+# Thêm "Sensorless" vào danh sách thuật toán
+algorithms.append("Sensorless")
+
 # Vòng lặp chính
 running = True
 draw_screen()
@@ -680,6 +775,28 @@ while running:
                 elif selected_algorithm == "AND-OR":
                     start_time = time.time()  # Bắt đầu đo thời gian
                     path = or_and_search(original_state, target_state, get_neighbors)
+                    elapsed_time = time.time() - start_time  # Tính thời gian thực thi
+                    steps = len(path) - 1 if path else 0  # Tính số bước
+                    if path:
+                        update_process_state(path)  # Cập nhật trạng thái theo từng bước
+                    else:
+                        print("Không tìm thấy đường đi!")
+                    global_elapsed_time = elapsed_time
+                    global_steps = steps
+                elif selected_algorithm == "Genetic":
+                    start_time = time.time()  # Bắt đầu đo thời gian
+                    path = genetic_algorithm_solve(original_state, target_state)
+                    elapsed_time = time.time() - start_time  # Tính thời gian thực thi
+                    steps = len(path) - 1 if path else 0  # Tính số bước
+                    if path:
+                        update_process_state(path)  # Cập nhật trạng thái theo từng bước
+                    else:
+                        print("Không tìm thấy đường đi!")
+                    global_elapsed_time = elapsed_time
+                    global_steps = steps
+                elif selected_algorithm == "Sensorless":
+                    start_time = time.time()  # Bắt đầu đo thời gian
+                    path = sensorless_solve(original_state, target_state)
                     elapsed_time = time.time() - start_time  # Tính thời gian thực thi
                     steps = len(path) - 1 if path else 0  # Tính số bước
                     if path:
