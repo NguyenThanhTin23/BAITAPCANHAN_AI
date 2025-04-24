@@ -28,7 +28,7 @@ BORDER_RADIUS = 10
 BUTTON_WIDTH, BUTTON_HEIGHT = 120, 40
 
 # Danh sách thuật toán
-algorithms = ["BFS", "DFS", "UCS", "IDS", "Greedy", "A*", "IDA*", "SHC", "S_AHC", "Stochastic", "SA", "BeamSearch", "AND-OR", "Genetic"]
+algorithms = ["BFS", "DFS", "UCS", "IDS", "Greedy", "A*", "IDA*", "SHC", "S_AHC", "Stochastic", "SA", "BeamSearch", "AND-OR", "Genetic", "Sensorless", "Backtracking"]
 selected_algorithm = None
 
 # Biến toàn cục để lưu thời gian và số bước
@@ -550,6 +550,32 @@ def sensorless_solve(start_state, goal_state):
 
     return []  # Trả về danh sách rỗng nếu không tìm thấy đường đi
 
+def backtracking_solve(start_state, goal_state):
+    """
+    Thuật toán Backtracking để tìm đường đi từ trạng thái bắt đầu đến trạng thái đích.
+    """
+    def backtrack(state, path, visited):
+        if state == goal_state:
+            return path + [state]  # Trả về đường đi nếu đạt trạng thái đích
+        
+        state_tuple = tuple(tuple(row) for row in state)
+        if state_tuple in visited:
+            return None  # Tránh lặp vô hạn
+        
+        visited.add(state_tuple)
+        for neighbor in get_neighbors(state):
+            result = backtrack(neighbor, path + [state], visited)
+            if result:
+                return result
+        visited.remove(state_tuple)  # Quay lui
+        return None
+
+    visited = set()
+    result = backtrack(start_state, [], visited)
+    if not result:
+        print("Không tìm thấy giải pháp với thuật toán Backtracking!")
+    return result if result else []
+
 # Ma trận trạng thái ban đầu và trạng thái đích
 original_state = [
      [1, 2, 3],
@@ -600,9 +626,6 @@ def randomize_matrix():
     random.shuffle(flattened)  # Trộn ngẫu nhiên các phần tử
     original_state = [flattened[i:i + 3] for i in range(0, len(flattened), 3)]  # Chuyển về ma trận 3x3
     process_state = [row[:] for row in original_state]  # Đồng bộ process_state với original_state
-  
-# Thêm "Sensorless" vào danh sách thuật toán
-algorithms.append("Sensorless")
 
 # Vòng lặp chính
 running = True
@@ -797,6 +820,17 @@ while running:
                 elif selected_algorithm == "Sensorless":
                     start_time = time.time()  # Bắt đầu đo thời gian
                     path = sensorless_solve(original_state, target_state)
+                    elapsed_time = time.time() - start_time  # Tính thời gian thực thi
+                    steps = len(path) - 1 if path else 0  # Tính số bước
+                    if path:
+                        update_process_state(path)  # Cập nhật trạng thái theo từng bước
+                    else:
+                        print("Không tìm thấy đường đi!")
+                    global_elapsed_time = elapsed_time
+                    global_steps = steps
+                elif selected_algorithm == "Backtracking":
+                    start_time = time.time()  # Bắt đầu đo thời gian
+                    path = backtracking_solve(original_state, target_state)
                     elapsed_time = time.time() - start_time  # Tính thời gian thực thi
                     steps = len(path) - 1 if path else 0  # Tính số bước
                     if path:
