@@ -144,15 +144,15 @@ Trong lĩnh vực **Trí tuệ nhân tạo**, **tìm kiếm có thông tin** (*i
 <table>
   <tr>
     <td align="center">
-      <img src="https://github.com/NguyenThanhTin23/GIT_TEST/blob/20f25ce3670fc24702042d4300ecd9c72e293bb5/Greedy.gif" width="150" /><br/>
+      <img src="https://github.com/NguyenThanhTin23/GIT_TEST/raw/20f25ce3670fc24702042d4300ecd9c72e293bb5/Greedy.gif" width="150" /><br/>
       <b>Greedy</b>
     </td>
     <td align="center">
-      <img src="https://github.com/NguyenThanhTin23/GIT_TEST/blob/20f25ce3670fc24702042d4300ecd9c72e293bb5/A.gif" width="150" /><br/>
+      <img src="https://github.com/NguyenThanhTin23/GIT_TEST/raw/20f25ce3670fc24702042d4300ecd9c72e293bb5/A.gif" width="150" /><br/>
       <b>A*</b>
     </td>
     <td align="center">
-      <img src="https://github.com/NguyenThanhTin23/GIT_TEST/blob/20f25ce3670fc24702042d4300ecd9c72e293bb5/IDA.gif" width="150" /><br/>
+      <img src="https://github.com/NguyenThanhTin23/GIT_TEST/raw/20f25ce3670fc24702042d4300ecd9c72e293bb5/IDA.gif" width="150" /><br/>
       <b>IDA*</b>
     </td>
   </tr>
@@ -160,9 +160,9 @@ Trong lĩnh vực **Trí tuệ nhân tạo**, **tìm kiếm có thông tin** (*i
 
 ### **Hình ảnh hiệu suất**
 <p align="center">
-  <img src="https://github.com/NguyenThanhTin23/GIT_TEST/blob/20f25ce3670fc24702042d4300ecd9c72e293bb5/Screenshot%202025-05-17%20172043.png" width="30%" style="margin:10px"/>
-  <img src="https://github.com/NguyenThanhTin23/GIT_TEST/blob/20f25ce3670fc24702042d4300ecd9c72e293bb5/Screenshot%202025-05-17%20172056.png" width="30%" style="margin:10px"/>
-  <img src="https://github.com/NguyenThanhTin23/GIT_TEST/blob/20f25ce3670fc24702042d4300ecd9c72e293bb5/Screenshot%202025-05-17%20172114.png" width="30%" style="margin:10px"/>
+  <img src="https://github.com/NguyenThanhTin23/GIT_TEST/raw/20f25ce3670fc24702042d4300ecd9c72e293bb5/Screenshot%202025-05-17%20172043.png" width="30%" style="margin:10px"/>
+  <img src="https://github.com/NguyenThanhTin23/GIT_TEST/raw/20f25ce3670fc24702042d4300ecd9c72e293bb5/Screenshot%202025-05-17%20172056.png" width="30%" style="margin:10px"/>
+  <img src="https://github.com/NguyenThanhTin23/GIT_TEST/raw/20f25ce3670fc24702042d4300ecd9c72e293bb5/Screenshot%202025-05-17%20172114.png" width="30%" style="margin:10px"/>
 </p>
 ________________________________________
 2.3. Các thuật toán Tìm kiếm cục bộ
