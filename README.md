@@ -113,7 +113,12 @@ Thay vào đó, các thuật toán này dựa vào:
   </tr>
 </table>
 
-
+### **Nhận xét**
+- IDS có tốc độ nhanh, tỷ lệ thành công cao, phù hợp cho bài toán 8-Puzzle.
+- UCS đạt hiệu quả tốt, tỷ lệ thành công cao nhưng tiêu tốn nhiều thời gian hơn.
+- DFS xử lý nhanh nhưng tỷ lệ thất bại cao và dễ mắc kẹt trong vòng lặp vô hạn.
+- BFS tốn nhiều thời gian và bộ nhớ, hiệu quả thấp hơn IDS và UCS.
+- Tổng thể, IDS là lựa chọn tối ưu để cân bằng giữa tốc độ và độ tin cậy trong bài toán này.
 
 
 
