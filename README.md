@@ -173,17 +173,55 @@ Trong lĩnh vực **Trí tuệ nhân tạo**, **tìm kiếm có thông tin** (*i
 - **A\*** và **IDA\***: Tốn **ít thời gian hơn** và có **số bước trung bình thấp** (khoảng **23 bước**), phản ánh khả năng **tìm lời giải nhanh và tối ưu hơn** của hai thuật toán này. Cho kết quả **tốt hơn** về cả **thời gian thực hiện** và **độ dài đường đi**, là lựa chọn **cân bằng giữa tốc độ và tối ưu hóa**.
 
 ----------------------------------------------------------------------------------------------------------------------------------------
-________________________________________
-2.3. Các thuật toán Tìm kiếm cục bộ
-Tìm kiếm cục bộ (local search) là nhóm các thuật toán không xây dựng toàn bộ cây tìm kiếm, mà chỉ quan tâm đến một hoặc vài trạng thái tại một thời điểm. Đây là cách tiếp cận hiệu quả trong các không gian trạng thái rất lớn, nơi việc lưu trữ toàn bộ cây tìm kiếm là không khả thi.
-Thuật toán cục bộ bắt đầu từ một trạng thái ban đầu và lặp lại việc di chuyển sang một trạng thái lân cận “tốt hơn”, cho đến khi không thể cải thiện nữa.
-Thuật toán tiêu biểu: Hill Climbing, Simulated Annealing, Stochastic Hill Climbing, Local Beam Search, Genetic Algorithm, v.v.
-Giải pháp:
-•	Tối ưu dần qua trạng thái lân cận
-• Khởi đầu từ một trạng thái (thường là ngẫu nhiên).
-• Đánh giá các trạng thái lân cận và di chuyển tới trạng thái tốt hơn.
-• Nếu không có lân cận nào tốt hơn (tối ưu cục bộ), có thể dừng lại hoặc sử dụng kỹ thuật tránh bẫy như làm lạnh mô phỏng (Simulated Annealing) hoặc đa nghiệm (Beam, Genetic).
-• Phù hợp cho các bài toán tối ưu hóa hoặc không gian tìm kiếm liên tục.
+
+### **2.3. Các thuật toán Tìm kiếm cục bộ**
+**Tìm kiếm cục bộ (Local Search)** là nhóm các thuật toán **không xây dựng toàn bộ cây tìm kiếm**, mà chỉ quan tâm đến **một hoặc vài trạng thái tại một thời điểm**. Cách tiếp cận này rất hiệu quả trong **không gian trạng thái lớn**, nơi việc lưu trữ toàn bộ cây tìm kiếm là không khả thi.
+
+### **Đặc điểm**
+- Bắt đầu từ **một trạng thái ban đầu**.
+- Lặp lại việc **di chuyển sang trạng thái lân cận tốt hơn**.
+- Kết thúc khi **không thể cải thiện thêm** (rơi vào tối ưu cục bộ).
+
+### **Giải pháp **
+- **Tối ưu dần thông qua trạng thái lân cận**:
+  - Khởi đầu từ một **trạng thái ngẫu nhiên**.
+  - Đánh giá và chọn **trạng thái lân cận tốt hơn** để di chuyển.
+  - Nếu **không có lân cận nào tốt hơn** (rơi vào bẫy tối ưu cục bộ), có thể:
+    - **Dừng lại**, hoặc
+    - Sử dụng các kỹ thuật tránh bẫy như:
+      - **Simulated Annealing (làm lạnh mô phỏng)**
+      - **Beam Search** (tìm kiếm theo chùm)
+      - **Genetic Algorithm** (thuật toán di truyền)
+
+### **Hình ảnh giải thuật**
+<table>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/NguyenThanhTin23/GIT_TEST/raw/20f25ce3670fc24702042d4300ecd9c72e293bb5/Leodoi.gif" width="150" /><br/>
+      <b>SHC</b>
+    </td>
+    <td align="center">
+      <img src="https://github.com/NguyenThanhTin23/GIT_TEST/raw/20f25ce3670fc24702042d4300ecd9c72e293bb5/Leodoi.gif" width="150" /><br/>
+      <b>S_AHC</b>
+    </td>
+    <td align="center">
+      <img src="https://github.com/NguyenThanhTin23/GIT_TEST/raw/20f25ce3670fc24702042d4300ecd9c72e293bb5/Leodoi.gif" width="150" /><br/>
+      <b>Stochastic</b>
+    </td>
+    <td align="center">
+      <img src="https://github.com/NguyenThanhTin23/GIT_TEST/raw/20f25ce3670fc24702042d4300ecd9c72e293bb5/SA.gif" width="150" /><br/>
+      <b>Simulate annealing </b>
+    </td>
+    <td align="center">
+      <img src="https://github.com/NguyenThanhTin23/GIT_TEST/raw/20f25ce3670fc24702042d4300ecd9c72e293bb5/Leodoi.gif" width="150" /><br/>
+      <b>Beam Search</b>
+    </td>
+     <td align="center">
+      <img src="https://github.com/NguyenThanhTin23/GIT_TEST/raw/20f25ce3670fc24702042d4300ecd9c72e293bb5/Genetic.gif" width="150" /><br/>
+      <b>Genetic</b>
+    </td>
+  </tr>
+</table>
 2.4. Tìm kiếm trong môi trường phức tạp
 Trong nhiều ứng dụng thực tế, việc tìm kiếm không diễn ra trong môi trường đơn giản, tĩnh, có đầy đủ thông tin. Thay vào đó, môi trường có thể mang tính động, không chắc chắn, một phần quan sát được, hoặc có nhiều tác nhân tương tác với nhau. Đây được gọi chung là môi trường phức tạp.
 Đặc điểm:
