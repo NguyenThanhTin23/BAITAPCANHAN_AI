@@ -51,17 +51,18 @@ Ví dụ: nếu ô trống ở góc trên trái → chỉ có 2 hành động: p
 - Dùng trong các thuật toán như Greedy Best-First Search và A* để định hướng tìm kiếm hiệu quả hơn.
 
 ### **2.1. Các thuật toán Tìm kiếm không có thông tin**
+
 Trong lĩnh vực Trí tuệ nhân tạo, **tìm kiếm không có thông tin** (hay còn gọi là **tìm kiếm mù**) là nhóm các thuật toán giải bài toán tìm kiếm trạng thái **mà không sử dụng bất kỳ thông tin nào về khoảng cách tới mục tiêu**.
 Thay vào đó, các thuật toán này dựa vào:
 - Cấu trúc của **không gian trạng thái**
 - Các phép biến đổi trạng thái hợp lệ để lần lượt kiểm tra các khả năng có thể xảy ra.
-#### **Đặc điểm:**
+#### **Đặc điểm**
 - Không khai thác tri thức chuyên biệt nào của bài toán  
 - Không sử dụng hàm heuristic để định hướng tìm kiếm  
 - Tổng quát, dễ cài đặt  
 - Có thể **kém hiệu quả** trong không gian trạng thái lớn hoặc sâu
 
-### **Giải pháp của nhóm thuật toán này:**
+### **Giải pháp**
 - **Duyệt toàn bộ không gian trạng thái**  
   - Tìm kiếm không có thông tin duyệt tuần tự hoặc theo một chiến lược cụ thể qua tất cả các trạng thái có thể sinh ra từ trạng thái ban đầu.
   - Mỗi **nút** trong quá trình tìm kiếm đại diện cho một **trạng thái**.
@@ -69,6 +70,7 @@ Thay vào đó, các thuật toán này dựa vào:
   - Quá trình tiếp tục cho đến khi:
     - Tìm thấy **trạng thái đích**, hoặc  
     - **Cạn kiệt** không gian tìm kiếm mà không có lời giải.
+    - 
 ### **Hình ảnh giải thuật:**
 <table>
   <tr>
@@ -120,17 +122,23 @@ Thay vào đó, các thuật toán này dựa vào:
 - BFS tốn nhiều thời gian và bộ nhớ, hiệu quả thấp hơn IDS và UCS.
 - Tổng thể, IDS là lựa chọn tối ưu để cân bằng giữa tốc độ và độ tin cậy trong bài toán này.
 
+---------------------------------------------------------------------------------------------------------------------------------------------------
 
+### **2.2. Tìm kiếm có thông tin (Informed Search)**
 
-2.2. Các thuật toán Tìm kiếm có thông tin
-Trong lĩnh vực Trí tuệ nhân tạo, tìm kiếm có thông tin (informed search) là nhóm các thuật toán sử dụng thông tin bổ sung (heuristic) để định hướng việc tìm kiếm trong không gian trạng thái. Thông tin này có thể đến từ tri thức chuyên biệt về bài toán, giúp thuật toán ưu tiên mở rộng các trạng thái “hứa hẹn” hơn — tức là có khả năng dẫn đến đích nhanh hơn.
-Các thuật toán có thông tin có thể hiệu quả hơn đáng kể so với các phương pháp không có thông tin, vì chúng tránh việc khám phá những vùng ít có khả năng chứa lời giải.
-Thuật toán tiêu biểu: Greedy Best-First Search, A* (A-star), Recursive Best-First Search (RBFS), v.v.
-Giải pháp:
-•	Định hướng tìm kiếm nhờ hàm heuristic
-• Mỗi trạng thái được đánh giá bởi một hàm heuristic (h(n)) hoặc kết hợp chi phí thực (g(n)) và dự đoán (h(n)) như trong A*.
-• Thuật toán ưu tiên mở rộng các trạng thái có giá trị heuristic thấp hơn.
-• Nhờ đó, thuật toán giảm số lượng trạng thái cần duyệt và tăng tốc độ tìm kiếm.
+Trong lĩnh vực **Trí tuệ nhân tạo**, **tìm kiếm có thông tin** (*informed search*) là nhóm các thuật toán sử dụng **thông tin bổ sung (heuristic)** để định hướng việc tìm kiếm trong không gian trạng thái. Thông tin này có thể đến từ **tri thức chuyên biệt về bài toán**, giúp thuật toán ưu tiên mở rộng các trạng thái **“hứa hẹn” hơn** — tức là có khả năng dẫn đến đích nhanh hơn.
+
+### **Đặc điểm**
+- Sử dụng **thông tin heuristic** để định hướng quá trình tìm kiếm.
+- Tránh duyệt qua các vùng không hứa hẹn, **tăng hiệu quả tìm kiếm**.
+- Tốc độ tìm kiếm **nhanh hơn đáng kể** so với các thuật toán không có thông tin.
+- Có khả năng tìm được lời giải **tốt hơn** nếu heuristic **chính xác**.
+
+### **Giải pháp**
+- Sử dụng **hàm heuristic `h(n)`** để đánh giá độ “hứa hẹn” của mỗi trạng thái.
+- Trong **A\***, kết hợp cả **chi phí đã đi qua `g(n)`** và **chi phí ước lượng còn lại `h(n)`**.
+- Trạng thái có giá trị **`f(n)` hoặc `h(n)` thấp hơn** sẽ được **ưu tiên mở rộng trước**.
+- Mục tiêu là **giảm số lượng trạng thái cần duyệt** và **rút ngắn thời gian tìm kiếm**.
 ________________________________________
 2.3. Các thuật toán Tìm kiếm cục bộ
 Tìm kiếm cục bộ (local search) là nhóm các thuật toán không xây dựng toàn bộ cây tìm kiếm, mà chỉ quan tâm đến một hoặc vài trạng thái tại một thời điểm. Đây là cách tiếp cận hiệu quả trong các không gian trạng thái rất lớn, nơi việc lưu trữ toàn bộ cây tìm kiếm là không khả thi.
