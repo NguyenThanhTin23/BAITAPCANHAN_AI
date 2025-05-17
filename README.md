@@ -210,7 +210,7 @@ Trong lĩnh vực **Trí tuệ nhân tạo**, **tìm kiếm có thông tin** (*i
     </td>
     <td align="center">
       <img src="https://github.com/NguyenThanhTin23/GIT_TEST/raw/20f25ce3670fc24702042d4300ecd9c72e293bb5/SA.gif" width="130" /><br/>
-      <b>Simulate annealing </b>
+      <b>SA </b>
     </td>
     <td align="center">
       <img src="https://github.com/NguyenThanhTin23/GIT_TEST/raw/20f25ce3670fc24702042d4300ecd9c72e293bb5/Leodoi.gif" width="130" /><br/>
@@ -218,7 +218,7 @@ Trong lĩnh vực **Trí tuệ nhân tạo**, **tìm kiếm có thông tin** (*i
     </td>
      <td align="center">
       <img src="https://github.com/NguyenThanhTin23/GIT_TEST/raw/20f25ce3670fc24702042d4300ecd9c72e293bb5/Genetic.gif" width="130" /><br/>
-   Trạng thái này là điểm bắt đầu cho quá trình tìm k130" /><br/>
+
       <b>Genetic</b>
     </td>
   </tr>
