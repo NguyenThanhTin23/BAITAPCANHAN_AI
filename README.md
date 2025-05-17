@@ -168,7 +168,7 @@ Trong lĩnh vực **Trí tuệ nhân tạo**, **tìm kiếm có thông tin** (*i
   <img src="https://github.com/NguyenThanhTin23/GIT_TEST/raw/20f25ce3670fc24702042d4300ecd9c72e293bb5/Screenshot%202025-05-17%20172114.png" width="550"/>
 </p>
 
-## **Nhận xét**
+### **Nhận xét**
 - **Greedy Best-First Search**: Dù chỉ mất khoảng **0.01 giây**, nhưng trung bình cần tới **60 bước**, cho thấy thuật toán **chỉ tập trung vào bước đi gần nhất**. Điều này có thể dẫn tới **lời giải không tối ưu** hoặc **dài hơn** về tổng thể. Phù hợp khi **tốc độ** là ưu tiên hàng đầu, tuy nhiên có khả năng **lời giải không ngắn** và có thể **đi đường vòng**.
 - **A\*** và **IDA\***: Tốn **ít thời gian hơn** và có **số bước trung bình thấp** (khoảng **23 bước**), phản ánh khả năng **tìm lời giải nhanh và tối ưu hơn** của hai thuật toán này. Cho kết quả **tốt hơn** về cả **thời gian thực hiện** và **độ dài đường đi**, là lựa chọn **cân bằng giữa tốc độ và tối ưu hóa**.
 
