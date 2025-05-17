@@ -260,36 +260,124 @@ Trong lĩnh vực **Trí tuệ nhân tạo**, **tìm kiếm có thông tin** (*i
 - Riêng nhóm **Hill Climbing** có tỷ lệ thành công **thấp hơn** so với các thuật toán khác, nhưng vẫn giữ được ưu điểm về **tốc độ**.
   
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
-2.4. Tìm kiếm trong môi trường phức tạp
-Trong nhiều ứng dụng thực tế, việc tìm kiếm không diễn ra trong môi trường đơn giản, tĩnh, có đầy đủ thông tin. Thay vào đó, môi trường có thể mang tính động, không chắc chắn, một phần quan sát được, hoặc có nhiều tác nhân tương tác với nhau. Đây được gọi chung là môi trường phức tạp.
-Đặc điểm:
-•	Thiếu thông tin đầy đủ về trạng thái hiện tại hoặc trạng thái đích.
-•	Môi trường có thể thay đổi trong quá trình tìm kiếm (dynamic environment).
-•	Có thể có nhiều tác nhân (agents) cùng hành động và ảnh hưởng lẫn nhau.
-•	Các hành động có thể không đảm bảo kết quả chắc chắn (non-deterministic).
-•	Một số môi trường chỉ cho phép quan sát từng phần (partial observability).
-Giải pháp:
-•	Tìm kiếm với thông tin không đầy đủ (Partial-Observation Search)
-• Đại diện cho trạng thái bằng các tập hợp có thể xảy ra (belief states).
-• Tìm chiến lược thay vì chỉ một chuỗi hành động.
-2.5. Tìm kiếm trong môi trường có ràng buộc (Constraint Satisfaction Problem - CSP)
-Thay vì mô hình hóa bài toán theo không gian trạng thái truyền thống (trạng thái – hành động), nhiều bài toán thực tế được biểu diễn dưới dạng các biến với miền giá trị và các ràng buộc logic giữa các biến. Đây là mô hình Constraint Satisfaction Problem (CSP) – một lớp bài toán quan trọng trong AI.
-Thành phần của một CSP:
-•	Tập biến (Variables): X={X1,X2,...,Xn}X = \{X_1, X_2, ..., X_n\}X={X1,X2,...,Xn}
-•	Tập miền giá trị (Domains): Mỗi biến XiX_iXi có miền giá trị DiD_iDi.
-•	Tập ràng buộc (Constraints): Xác định các tổ hợp giá trị hợp lệ giữa các biến.
-Đặc điểm:
-•	Không quan tâm đến thứ tự hành động hay chi phí.
-•	Tập trung vào việc tìm một (hoặc tất cả) cấu hình thỏa mãn toàn bộ ràng buộc.
-•	Các bài toán CSP thường có tính tổ hợp rất lớn.
-Giải pháp:
-•	Gán giá trị cho biến sao cho thỏa mãn tất cả ràng buộc
-• Thường sử dụng thuật toán gán ràng buộc + kiểm tra nhất quán (backtracking + constraint checking).
-• Cải tiến với Forward Checking, AC-3 (Arc Consistency) để loại trừ giá trị không hợp lệ sớm.
-3. Kết luận
-•	Nắm vững nguyên lý hoạt động và cách áp dụng các thuật toán tìm kiếm trong không gian trạng thái, giúp nâng cao khả năng giải quyết các bài toán phức tạp.
-•	Giải pháp được xây dựng có khả năng tìm ra chuỗi hành động từ trạng thái ban đầu đến trạng thái đích một cách tối ưu hoặc gần tối ưu.
-•	Quá trình tìm kiếm được tối ưu nhằm giảm thiểu tài nguyên tính toán và thời gian xử lý, tăng hiệu suất cho chương trình.
-•	Giao diện trực quan giúp người dùng dễ dàng theo dõi từng bước giải, đồng thời hỗ trợ nhóm kiểm tra và hoàn thiện thuật toán hiệu quả hơn.
-•	Nhận thức rõ các thách thức khi tìm kiếm trong môi trường có ràng buộc và thông tin không đầy đủ, từ đó hiểu tầm quan trọng của việc thiết kế giải pháp phù hợp cho từng bài toán.
-•	Kết quả đạt được khẳng định tính khả thi của việc ứng dụng các thuật toán tìm kiếm trong trò chơi 8 puzzle, đồng thời mở rộng tiềm năng áp dụng vào nhiều bài toán thực tế khác trong lĩnh vực trí tuệ nhân tạo.
+
+### **2.4. Tìm kiếm trong môi trường phức tạp**
+### **Đặc điểm**
+- Thiếu thông tin đầy đủ về trạng thái hiện tại hoặc trạng thái đích.
+- Môi trường có thể thay đổi trong quá trình tìm kiếm (dynamic environment).
+- Có thể có nhiều tác nhân (agents) cùng hành động và ảnh hưởng lẫn nhau.
+- Các hành động có thể không đảm bảo kết quả chắc chắn (non-deterministic).
+- Một số môi trường chỉ cho phép quan sát từng phần (partial observability).
+
+### **Giải pháp**
+- Tìm kiếm với thông tin không đầy đủ (Partial-Observation Search)
+- Đại diện cho trạng thái bằng các tập hợp có thể xảy ra (belief states).
+- Tìm chiến lược thay vì chỉ một chuỗi hành động.
+- Cần khả năng thích ứng trong quá trình tìm kiếm và tương tác.
+
+### **Hình ảnh giải thuật**
+<table>
+    <td align="center">
+      <img src="https://github.com/NguyenThanhTin23/GIT_TEST/raw/20f25ce3670fc24702042d4300ecd9c72e293bb5/Sensor.gif" width="150" /><br/>
+      <b>Sensorless</b>
+    </td>
+</table>
+
+### **Thuật toán AND-OR Search và Partial không có đường đi**
+### **Hình ảnh hiệu suất**
+<p align="center">
+  <img src="https://github.com/NguyenThanhTin23/GIT_TEST/raw/20f25ce3670fc24702042d4300ecd9c72e293bb5/Screenshot%202025-05-17%20174110.png" width="550"/>
+  <img src="https://github.com/NguyenThanhTin23/GIT_TEST/raw/20f25ce3670fc24702042d4300ecd9c72e293bb5/Screenshot%202025-05-17%20174057.png" width="550"/>
+</p>
+
+<p align="center">
+  <img src="https://github.com/NguyenThanhTin23/GIT_TEST/raw/20f25ce3670fc24702042d4300ecd9c72e293bb5/Screenshot%202025-05-17%20174124.png" width="550"/>
+</p>
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+### **2.5. Tìm kiếm trong môi trường có ràng buộc (Constraint Satisfaction Problem - CSP)**
+### **Đặc điểm***
+- Không quan tâm đến thứ tự hành động hay chi phí.
+- Tập trung vào việc tìm một (hoặc tất cả) cấu hình thỏa mãn toàn bộ ràng buộc.
+- Các bài toán CSP thường có tính tổ hợp rất lớn.
+
+### **Giải pháp**
+- Gán giá trị cho biến sao cho thỏa mãn tất cả ràng buộc
+- Thường sử dụng thuật toán gán ràng buộc + kiểm tra nhất quán (backtracking + constraint checking).
+- Cải tiến với kỹ thuật như:
+            - Forward Checking
+            - AC-3 (Arc Consistency) – loại trừ giá trị không hợp lệ sớm.
+
+### **Hình ảnh giải thuật**
+<table>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/NguyenThanhTin23/GIT_TEST/raw/20f25ce3670fc24702042d4300ecd9c72e293bb5/Backtracking.gif" width="150" /><br/>
+      <b>Backtracking</b>
+    </td>
+    <td align="center">
+      <img src="https://github.com/NguyenThanhTin23/GIT_TEST/raw/20f25ce3670fc24702042d4300ecd9c72e293bb5/AC.gif" width="150" /><br/>
+      <b>AC3</b>
+    </td>
+    <td align="center">
+      <img src="https://github.com/NguyenThanhTin23/GIT_TEST/raw/20f25ce3670fc24702042d4300ecd9c72e293bb5/test.gif" width="150" /><br/>
+      <b>Testing</b>
+    </td>
+  </tr>
+</table>
+
+### **Hình ảnh hiệu suất**
+<p align="center">
+  <img src="https://github.com/NguyenThanhTin23/GIT_TEST/raw/20f25ce3670fc24702042d4300ecd9c72e293bb5/Screenshot%202025-05-17%20175314.png" width="550"/>
+  <img src="https://github.com/NguyenThanhTin23/GIT_TEST/raw/20f25ce3670fc24702042d4300ecd9c72e293bb5/Screenshot%202025-05-17%20175303.png" width="550"/>
+</p>
+
+<p align="center">
+  <img src="https://github.com/NguyenThanhTin23/GIT_TEST/raw/20f25ce3670fc24702042d4300ecd9c72e293bb5/Screenshot%202025-05-17%20175328.png" width="550"/>
+</p>
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+### **2.6. Tìm kiếm học tăng cường (Reinforcement Learning Search)**
+### **Đặc điểm**
+- Tác nhân học thông qua tương tác với môi trường mà không cần mô hình đầy đủ.
+- Phản hồi từ môi trường dưới dạng phần thưởng (reward) thay vì hướng dẫn trực tiếp.
+- Hành động ảnh hưởng đến trạng thái tương lai và phần thưởng tích lũy.
+- Cân bằng giữa khám phá (exploration) và khai thác (exploitation).
+- Phù hợp với các môi trường không xác định, động, hoặc có chuỗi hành động dài.
+
+### **Giải pháp**
+- Học chính sách hoặc hàm giá trị để tối ưu phần thưởng
+- Sử dụng các thuật toán như:
+  - Q-Learning, SARSA – học giá trị hành động.
+  - Deep Q-Network (DQN) – mở rộng với mạng nơ-ron.
+  - Policy Gradient, Actor-Critic – học trực tiếp chính sách.
+  - Dữ liệu học thu được từ quá trình tương tác liên tục với môi trường.
+  - Cần có chiến lược khám phá như ε-greedy, Boltzmann, v.v
+ 
+### **Hình ảnh giải thuật**
+<table>
+    <td align="center">
+      <img src="https://github.com/NguyenThanhTin23/GIT_TEST/raw/20f25ce3670fc24702042d4300ecd9c72e293bb5/q.gif" width="150" /><br/>
+      <b>QLearning</b>
+    </td>
+</table>
+
+### **Hình ảnh hiệu suất**
+<p align="center">
+  <img src="https://github.com/NguyenThanhTin23/GIT_TEST/raw/20f25ce3670fc24702042d4300ecd9c72e293bb5/Screenshot%202025-05-17%20173615.png" width="550"/>
+</p>
+
+### **Nhận xét**
+- Hiệu suất Q-Learning khá tốt: tỷ lệ thành công 66.7% và thất bại 33.3%. Thời gian trung bình để đạt thành công là 13.02 giây, có thể cần tối ưu thêm để nâng cao hiệu quả.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+### **3. Kết luận**
+- Nắm vững nguyên lý hoạt động và cách áp dụng các thuật toán tìm kiếm trong không gian trạng thái, giúp nâng cao khả năng giải quyết các bài toán phức tạp.
+- Giải pháp được xây dựng có khả năng tìm ra chuỗi hành động từ trạng thái ban đầu đến trạng thái đích một cách tối ưu hoặc gần tối ưu.
+- Quá trình tìm kiếm được tối ưu nhằm giảm thiểu tài nguyên tính toán và thời gian xử lý, tăng hiệu suất cho chương trình.
+- Giao diện trực quan giúp người dùng dễ dàng theo dõi từng bước giải, đồng thời hỗ trợ nhóm kiểm tra và hoàn thiện thuật toán hiệu quả hơn.
+- Nhận thức rõ các thách thức khi tìm kiếm trong môi trường có ràng buộc và thông tin không đầy đủ, từ đó hiểu tầm quan trọng của việc thiết kế giải pháp phù hợp cho từng bài toán.
+- Kết quả đạt được khẳng định tính khả thi của việc ứng dụng các thuật toán tìm kiếm trong trò chơi 8 puzzle, đồng thời mở rộng tiềm năng áp dụng vào nhiều bài toán thực tế khác trong lĩnh vực trí tuệ nhân tạo.
