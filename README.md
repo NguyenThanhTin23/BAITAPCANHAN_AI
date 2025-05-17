@@ -7,24 +7,29 @@
 • Triển khai và minh họa trực quan quá trình giải quyết bài toán bằng thư viện đồ họa (như pygame) để dễ quan sát và phân tích.  
 • Làm nền tảng cho các bài toán AI phức tạp hơn trong lĩnh vực giải đố và tự động hóa suy luận trạng thái.
 
+----------------------------------------------------------------------------------------------------------------------------------------
 ### **2. Nội dung**
+
 ### **Các thành phần chính của một bài toán tìm kiếm**
 ### **- Không gian trạng thái (State Space)**
 - Là tập hợp tất cả các cấu hình hợp lệ của bảng 3x3, gồm các số từ 0 đến 8 (0 là ô trống).  
 - Mỗi trạng thái là một hoán vị của các số này.  
 - Tổng số trạng thái hợp lệ: 9! = 362,880, nhưng chỉ 181,440 trạng thái là giải được (do tính chất hoán vị chẵn/lẻ).
+
 ### **- Trạng thái đầu (Initial State)**
 - Là trạng thái ban đầu được cung cấp, ví dụ:  
                 1 2 3
                 4 0 6
                 7 5 8
    Trạng thái này là điểm bắt đầu cho quá trình tìm kiếm lời giải.
+  
 ### **- Trạng thái đích (Goal State)**
 - Là trạng thái mong muốn đạt được, thường là:
                 1 2 3
                 4 5 6
                 7 8 0
   - Trạng thái này có thể thay đổi tùy yêu cầu bài toán, miễn sao hợp lệ.
+  - 
 ### **- Tập hành động (Action Set)**
 - Tại mỗi trạng thái, ta có thể di chuyển ô trống (0) theo 4 hướng:
     - **Lên** (Up)  
@@ -33,21 +38,38 @@
     - **Phải** (Right)  
 - Tổng số hành động hợp lệ phụ thuộc vào vị trí của ô trống (0).  
 Ví dụ: nếu ô trống ở góc trên trái → chỉ có 2 hành động: phải, xuống.
-### **- Hàm kế tiếp (Successor Function)**
-- Là hàm tạo ra trạng thái mới sau khi áp dụng một hành động cho trạng thái hiện tại.  
-- Ví dụ: Di chuyển ô trống từ (1,1) lên (0,1) → tạo ra trạng thái mới.
-### **- Hàm chi phí thực tế (Cost Function)**
-- Trong tìm kiếm không có thông tin (BFS, DFS), thường giả định mỗi bước di chuyển có chi phí bằng nhau, tức là `Cost = 1` cho mỗi hành động.  
-- Nếu áp dụng UCS, ta vẫn dùng `g(n)` = tổng số bước đi từ đầu đến trạng thái hiện tại.
-  
-2.1. Các thuật toán Tìm kiếm không có thông tin
-Trong lĩnh vực Trí tuệ nhân tạo, tìm kiếm không có thông tin (hay còn gọi là tìm kiếm mù) là một nhóm các thuật toán giải bài toán tìm kiếm trạng thái mà không sử dụng bất kỳ thông tin nào về khoảng cách tới mục tiêu. Thay vào đó, các thuật toán này dựa vào cấu trúc của không gian trạng thái và các phép biến đổi trạng thái, để lần lượt kiểm tra các khả năng.
-Các thuật toán này được gọi là “không có thông tin” vì không khai thác tri thức chuyên biệt nào của bài toán, chẳng hạn như không có hàm heuristic để định hướng việc mở rộng các trạng thái hứa hẹn hơn. Do đó, chúng thường tổng quát, dễ cài đặt nhưng cũng có thể kém hiệu quả trong những không gian trạng thái lớn hoặc sâu.
-Giải pháp:
-. Duyệt toàn bộ không gian trạng thái
-•	Tìm kiếm không có thông tin duyệt tuần tự hoặc có chiến lược qua tất cả các trạng thái có thể từ trạng thái ban đầu.
-•	Mỗi nút đại diện cho một trạng thái, và thuật toán sẽ mở rộng từng nút để sinh ra các trạng thái kế tiếp.
-•	Quá trình tiếp tục cho đến khi tìm được trạng thái đích hoặc cạn kiệt không gian tìm kiếm.
+
+### **- Hàm chi phí thực tế (Cost Function – g(n))**
+- Là tổng số bước đã đi từ trạng thái bắt đầu đến trạng thái hiện tại.  
+- Mỗi bước di chuyển được tính với chi phí bằng 1 → `g(n) = số bước đã đi`.  
+- Được sử dụng trong các thuật toán như Uniform Cost Search (UCS), A*, v.v.
+- 
+### **- Hàm chi phí ước lượng (Heuristic Function – h(n))**
+- Là ước lượng số bước còn lại để đi từ trạng thái hiện tại đến trạng thái đích.  
+- Trong bài toán này, `h(n)` được tính là **số ô đang sai vị trí so với trạng thái đích**, không tính ô trống (`0`).  
+- Đây là một hàm heuristic đơn giản và hợp lệ (admissible) vì nó **không bao giờ đánh giá vượt quá chi phí thực tế**.  
+- Dùng trong các thuật toán như Greedy Best-First Search và A* để định hướng tìm kiếm hiệu quả hơn.
+
+### **2.1. Các thuật toán Tìm kiếm không có thông tin**
+Trong lĩnh vực Trí tuệ nhân tạo, **tìm kiếm không có thông tin** (hay còn gọi là **tìm kiếm mù**) là nhóm các thuật toán giải bài toán tìm kiếm trạng thái **mà không sử dụng bất kỳ thông tin nào về khoảng cách tới mục tiêu**.
+Thay vào đó, các thuật toán này dựa vào:
+- Cấu trúc của **không gian trạng thái**
+- Các phép biến đổi trạng thái hợp lệ  
+để lần lượt kiểm tra các khả năng có thể xảy ra.
+#### **Đặc điểm:**
+- Không khai thác tri thức chuyên biệt nào của bài toán  
+- Không sử dụng hàm heuristic để định hướng tìm kiếm  
+- Tổng quát, dễ cài đặt  
+- Có thể **kém hiệu quả** trong không gian trạng thái lớn hoặc sâu
+
+### **Giải pháp của nhóm thuật toán này:**
+- **Duyệt toàn bộ không gian trạng thái**  
+  - Tìm kiếm không có thông tin duyệt tuần tự hoặc theo một chiến lược cụ thể qua tất cả các trạng thái có thể sinh ra từ trạng thái ban đầu.
+  - Mỗi **nút** trong quá trình tìm kiếm đại diện cho một **trạng thái**.
+  - Thuật toán sẽ **mở rộng từng nút** để sinh ra các trạng thái kế tiếp.
+  - Quá trình tiếp tục cho đến khi:
+    - Tìm thấy **trạng thái đích**, hoặc  
+    - **Cạn kiệt** không gian tìm kiếm mà không có lời giải.
 
 
 2.2. Các thuật toán Tìm kiếm có thông tin
