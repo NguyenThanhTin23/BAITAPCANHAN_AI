@@ -253,6 +253,12 @@ Trong lĩnh vực **Trí tuệ nhân tạo**, **tìm kiếm có thông tin** (*i
     </td>
   </tr>
 </table>
+
+### **Nhận xét**
+- **Beam Search**, **SA** nổi bật nhất về hiệu quả với **tỷ lệ thành công cao (66.7%)**, trong khi vẫn xử lý rất nhanh.
+- Các thuật toán **GA**, **SHC**, **S_AHC**, **Stochastic** đều có **thời gian xử lý cực nhanh**, trung bình **chưa đến 0.01 giây**.Tuy nhiên, **tỷ lệ thành công của các thuật toán này chỉ dao động từ 40% đến 50%**, do đó phù hợp với các bài toán **ưu tiên tốc độ hơn tối ưu tuyệt đối**.
+- Riêng nhóm **Hill Climbing** có tỷ lệ thành công **thấp hơn** so với các thuật toán khác, nhưng vẫn giữ được ưu điểm về **tốc độ**.
+  
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 2.4. Tìm kiếm trong môi trường phức tạp
 Trong nhiều ứng dụng thực tế, việc tìm kiếm không diễn ra trong môi trường đơn giản, tĩnh, có đầy đủ thông tin. Thay vào đó, môi trường có thể mang tính động, không chắc chắn, một phần quan sát được, hoặc có nhiều tác nhân tương tác với nhau. Đây được gọi chung là môi trường phức tạp.
