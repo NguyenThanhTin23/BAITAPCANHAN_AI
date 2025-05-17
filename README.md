@@ -18,9 +18,7 @@
 
 ### **- Trạng thái đầu (Initial State)**
 - Là trạng thái ban đầu được cung cấp, ví dụ:  
-                1 2 3
-                4 0 6
-                7 5 8
+<pre> ``` 1 2 3 4 0 6 7 5 8 ``` </pre>
    Trạng thái này là điểm bắt đầu cho quá trình tìm kiếm lời giải.
   
 ### **- Trạng thái đích (Goal State)**
@@ -29,7 +27,7 @@
                 4 5 6
                 7 8 0
   - Trạng thái này có thể thay đổi tùy yêu cầu bài toán, miễn sao hợp lệ.
-  - 
+
 ### **- Tập hành động (Action Set)**
 - Tại mỗi trạng thái, ta có thể di chuyển ô trống (0) theo 4 hướng:
     - **Lên** (Up)  
@@ -43,7 +41,7 @@ Ví dụ: nếu ô trống ở góc trên trái → chỉ có 2 hành động: p
 - Là tổng số bước đã đi từ trạng thái bắt đầu đến trạng thái hiện tại.  
 - Mỗi bước di chuyển được tính với chi phí bằng 1 → `g(n) = số bước đã đi`.  
 - Được sử dụng trong các thuật toán như Uniform Cost Search (UCS), A*, v.v.
-- 
+  
 ### **- Hàm chi phí ước lượng (Heuristic Function – h(n))**
 - Là ước lượng số bước còn lại để đi từ trạng thái hiện tại đến trạng thái đích.  
 - Trong bài toán này, `h(n)` được tính là **số ô đang sai vị trí so với trạng thái đích**, không tính ô trống (`0`).  
@@ -54,8 +52,7 @@ Ví dụ: nếu ô trống ở góc trên trái → chỉ có 2 hành động: p
 Trong lĩnh vực Trí tuệ nhân tạo, **tìm kiếm không có thông tin** (hay còn gọi là **tìm kiếm mù**) là nhóm các thuật toán giải bài toán tìm kiếm trạng thái **mà không sử dụng bất kỳ thông tin nào về khoảng cách tới mục tiêu**.
 Thay vào đó, các thuật toán này dựa vào:
 - Cấu trúc của **không gian trạng thái**
-- Các phép biến đổi trạng thái hợp lệ  
-để lần lượt kiểm tra các khả năng có thể xảy ra.
+- Các phép biến đổi trạng thái hợp lệ để lần lượt kiểm tra các khả năng có thể xảy ra.
 #### **Đặc điểm:**
 - Không khai thác tri thức chuyên biệt nào của bài toán  
 - Không sử dụng hàm heuristic để định hướng tìm kiếm  
