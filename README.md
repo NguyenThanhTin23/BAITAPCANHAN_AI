@@ -95,20 +95,20 @@ Thay vào đó, các thuật toán này dựa vào:
 <table>
   <tr>
     <td align="center" style="padding: 20px;">
-      <img src="https://github.com/NguyenThanhTin23/GIT_TEST/raw/20f25ce3670fc24702042d4300ecd9c72e293bb5/Screenshot%202025-05-17%20171348.png" width="450" />
+      <img src="https://github.com/NguyenThanhTin23/GIT_TEST/raw/20f25ce3670fc24702042d4300ecd9c72e293bb5/Screenshot%202025-05-17%20171348.png" width="550" />
     </td>
     <td width="30"></td>
     <td align="center" style="padding: 20px;">
-      <img src="https://github.com/NguyenThanhTin23/GIT_TEST/raw/20f25ce3670fc24702042d4300ecd9c72e293bb5/Screenshot%202025-05-17%20171404.png" width="250" />
+      <img src="https://github.com/NguyenThanhTin23/GIT_TEST/raw/20f25ce3670fc24702042d4300ecd9c72e293bb5/Screenshot%202025-05-17%20171404.png" width="550" />
     </td>
   </tr>
   <tr>
     <td align="center" style="padding: 20px;">
-      <img src="https://github.com/NguyenThanhTin23/GIT_TEST/raw/20f25ce3670fc24702042d4300ecd9c72e293bb5/Screenshot%202025-05-17%20171423.png" width="250" />
+      <img src="https://github.com/NguyenThanhTin23/GIT_TEST/raw/20f25ce3670fc24702042d4300ecd9c72e293bb5/Screenshot%202025-05-17%20171423.png" width="550" />
     </td>
     <td width="30"></td>
     <td align="center" style="padding: 20px;">
-      <img src="https://github.com/NguyenThanhTin23/GIT_TEST/raw/20f25ce3670fc24702042d4300ecd9c72e293bb5/Screenshot%202025-05-17%20171444.png" width="250" />
+      <img src="https://github.com/NguyenThanhTin23/GIT_TEST/raw/20f25ce3670fc24702042d4300ecd9c72e293bb5/Screenshot%202025-05-17%20171444.png" width="550" />
     </td>
   </tr>
 </table>
