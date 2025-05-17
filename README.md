@@ -25,9 +25,9 @@
   
 ### **- Trạng thái đích (Goal State)**
 - Là trạng thái mong muốn đạt được, thường là:
-                1 2 3
-                4 5 6
-                7 8 0
+  1 2 3  
+  4 5 6  
+  7 8 0
   - Trạng thái này có thể thay đổi tùy yêu cầu bài toán, miễn sao hợp lệ.
 
 ### **- Tập hành động (Action Set)**
