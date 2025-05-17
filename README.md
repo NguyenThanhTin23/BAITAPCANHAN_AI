@@ -70,7 +70,7 @@ Thay vào đó, các thuật toán này dựa vào:
   - Quá trình tiếp tục cho đến khi:
     - Tìm thấy **trạng thái đích**, hoặc  
     - **Cạn kiệt** không gian tìm kiếm mà không có lời giải.
-    - 
+
 ### **Hình ảnh giải thuật**
 <table>
   <tr>
@@ -278,7 +278,7 @@ Trong lĩnh vực **Trí tuệ nhân tạo**, **tìm kiếm có thông tin** (*i
 ### **Hình ảnh giải thuật**
 <table>
     <td align="center">
-      <img src="https://github.com/NguyenThanhTin23/GIT_TEST/raw/20f25ce3670fc24702042d4300ecd9c72e293bb5/Sensor.gif" width="150" /><br/>
+      <img src="https://github.com/NguyenThanhTin23/GIT_TEST/raw/cb3114b090e81c8f2dbde3b28aafafbb05b70444/sensor.gif" width="150" /><br/>
       <b>Sensorless</b>
     </td>
 </table>
