@@ -284,6 +284,7 @@ Trong lĩnh vực **Trí tuệ nhân tạo**, **tìm kiếm có thông tin** (*i
 </table>
 
 ### **Thuật toán AND-OR Search và Partial không có đường đi**
+
 ### **Hình ảnh hiệu suất**
 <p align="center">
   <img src="https://github.com/NguyenThanhTin23/GIT_TEST/raw/20f25ce3670fc24702042d4300ecd9c72e293bb5/Screenshot%202025-05-17%20174110.png" width="550"/>
@@ -293,6 +294,12 @@ Trong lĩnh vực **Trí tuệ nhân tạo**, **tìm kiếm có thông tin** (*i
 <p align="center">
   <img src="https://github.com/NguyenThanhTin23/GIT_TEST/raw/20f25ce3670fc24702042d4300ecd9c72e293bb5/Screenshot%202025-05-17%20174124.png" width="550"/>
 </p>
+
+### **Nhận xét**
+- AND-OR: Không thành công, thất bại 100%, thời gian trung bình 0 giây.
+- Sensorless: tỉ lệ hoàn thành thấp chỉ 33% , thời gian trung bình 0 giây.
+- Partial: Không thành công, thất bại 100%, thời gian trung bình 0 giây.
+Nhìn chung, các phương pháp này chưa phù hợp hoặc chưa tối ưu trong thử nghiệm -> Cần xem xét lại cách áp dụng, điều chỉnh tham số hoặc dữ liệu để nâng cao hiệu quả.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -336,6 +343,11 @@ Trong lĩnh vực **Trí tuệ nhân tạo**, **tìm kiếm có thông tin** (*i
 <p align="center">
   <img src="https://github.com/NguyenThanhTin23/GIT_TEST/raw/20f25ce3670fc24702042d4300ecd9c72e293bb5/Screenshot%202025-05-17%20175328.png" width="550"/>
 </p>
+
+### **Nhận xét**
+- Testing: Không thành công 100%, không có lần thành công nào, thời gian trung bình 0 giây. Điều này cho thấy phương pháp này chưa hiệu quả hoặc chưa phù hợp trong các thử nghiệm đã thực hiện.
+- Backtracking: Thành công 100% với thời gian trung bình là 1.78 giây. Đây là phương pháp hiệu quả rõ rệt, đạt kết quả hoàn chỉnh trong thời gian khá nhanh so với các phương pháp khác.
+- AC3: Không thành công, thất bại 100%, thời gian trung bình cũng là 0 giây. Có thể do chưa đủ hoặc dữ liệu chưa phù hợp để phương pháp này thể hiện hiệu quả trong thử nghiệm này.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
