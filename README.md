@@ -223,6 +223,36 @@ Trong lĩnh vực **Trí tuệ nhân tạo**, **tìm kiếm có thông tin** (*i
   </tr>
 </table>
 
+### **Hình ảnh hiệu suất**
+<table>
+  <tr>
+    <td align="center" style="padding: 20px;">
+      <img src="https://github.com/NguyenThanhTin23/GIT_TEST/raw/20f25ce3670fc24702042d4300ecd9c72e293bb5/Screenshot%202025-05-17%20172946.png" width="550" />
+    </td>
+    <td width="30"></td>
+    <td align="center" style="padding: 20px;">
+      <img src="https://github.com/NguyenThanhTin23/GIT_TEST/raw/20f25ce3670fc24702042d4300ecd9c72e293bb5/Screenshot%202025-05-17%20173011.png" width="550" />
+    </td>
+  </tr>
+  <tr>
+    <td align="center" style="padding: 20px;">
+      <img src="https://github.com/NguyenThanhTin23/GIT_TEST/raw/20f25ce3670fc24702042d4300ecd9c72e293bb5/Screenshot%202025-05-17%20173026.png" width="550" />
+    </td>
+    <td width="30"></td>
+    <td align="center" style="padding: 20px;">
+      <img src="https://github.com/NguyenThanhTin23/GIT_TEST/raw/20f25ce3670fc24702042d4300ecd9c72e293bb5/Screenshot%202025-05-17%20173037.png" width="550" />
+    </td>
+  </tr>
+  <tr>
+    <td align="center" style="padding: 20px;">
+      <img src="https://github.com/NguyenThanhTin23/GIT_TEST/raw/20f25ce3670fc24702042d4300ecd9c72e293bb5/Screenshot%202025-05-17%20173052.png" width="550" />
+    </td>
+    <td width="30"></td>
+    <td align="center" style="padding: 20px;">
+      <img src="https://github.com/NguyenThanhTin23/GIT_TEST/raw/20f25ce3670fc24702042d4300ecd9c72e293bb5/Screenshot%202025-05-17%20173109.png" width="550" />
+    </td>
+  </tr>
+</table>
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 2.4. Tìm kiếm trong môi trường phức tạp
 Trong nhiều ứng dụng thực tế, việc tìm kiếm không diễn ra trong môi trường đơn giản, tĩnh, có đầy đủ thông tin. Thay vào đó, môi trường có thể mang tính động, không chắc chắn, một phần quan sát được, hoặc có nhiều tác nhân tương tác với nhau. Đây được gọi chung là môi trường phức tạp.
