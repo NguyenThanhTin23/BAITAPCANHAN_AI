@@ -313,15 +313,15 @@ Trong lĩnh vực **Trí tuệ nhân tạo**, **tìm kiếm có thông tin** (*i
 <table>
   <tr>
     <td align="center">
-      <img src="https://github.com/NguyenThanhTin23/GIT_TEST/raw/20f25ce3670fc24702042d4300ecd9c72e293bb5/Backtracking.gif" width="150" /><br/>
+      <img src="https://github.com/NguyenThanhTin23/GIT_TEST/raw/cb3114b090e81c8f2dbde3b28aafafbb05b70444/Backtracking.gif" width="150" /><br/>
       <b>Backtracking</b>
     </td>
     <td align="center">
-      <img src="https://github.com/NguyenThanhTin23/GIT_TEST/raw/20f25ce3670fc24702042d4300ecd9c72e293bb5/AC.gif" width="150" /><br/>
+      <img src="https://github.com/NguyenThanhTin23/GIT_TEST/raw/cb3114b090e81c8f2dbde3b28aafafbb05b70444/AC.gif" width="150" /><br/>
       <b>AC3</b>
     </td>
     <td align="center">
-      <img src="https://github.com/NguyenThanhTin23/GIT_TEST/raw/20f25ce3670fc24702042d4300ecd9c72e293bb5/test.gif" width="150" /><br/>
+      <img src="https://github.com/NguyenThanhTin23/GIT_TEST/raw/cb3114b090e81c8f2dbde3b28aafafbb05b70444/test.gif" width="150" /><br/>
       <b>Testing</b>
     </td>
   </tr>
