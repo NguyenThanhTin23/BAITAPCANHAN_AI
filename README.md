@@ -1,4 +1,4 @@
-Nguyễn Thành Tin - 23110340
+### **Nguyễn Thành Tin - 23110340**
 ### **1. Mục tiêu**
 • Ứng dụng các thuật toán tìm kiếm trong trí tuệ nhân tạo (AI) để giải bài toán 8-Puzzle — một bài toán kinh điển về tìm kiếm trạng thái.  
 • So sánh hiệu quả giữa các thuật toán trong từng nhóm thuật toán  
