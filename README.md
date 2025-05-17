@@ -139,6 +139,31 @@ Trong lĩnh vực **Trí tuệ nhân tạo**, **tìm kiếm có thông tin** (*i
 - Trong **A\***, kết hợp cả **chi phí đã đi qua `g(n)`** và **chi phí ước lượng còn lại `h(n)`**.
 - Trạng thái có giá trị **`f(n)` hoặc `h(n)` thấp hơn** sẽ được **ưu tiên mở rộng trước**.
 - Mục tiêu là **giảm số lượng trạng thái cần duyệt** và **rút ngắn thời gian tìm kiếm**.
+
+### **Hình ảnh giải thuật:**
+<table>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/NguyenThanhTin23/GIT_TEST/blob/20f25ce3670fc24702042d4300ecd9c72e293bb5/Greedy.gif" width="150" /><br/>
+      <b>Greedy</b>
+    </td>
+    <td align="center">
+      <img src="https://github.com/NguyenThanhTin23/GIT_TEST/blob/20f25ce3670fc24702042d4300ecd9c72e293bb5/A.gif" width="150" /><br/>
+      <b>A*</b>
+    </td>
+    <td align="center">
+      <img src="https://github.com/NguyenThanhTin23/GIT_TEST/blob/20f25ce3670fc24702042d4300ecd9c72e293bb5/IDA.gif" width="150" /><br/>
+      <b>IDA*</b>
+    </td>
+  </tr>
+</table>
+
+### **Hình ảnh hiệu suất**
+<p align="center">
+  <img src="https://github.com/NguyenThanhTin23/GIT_TEST/blob/20f25ce3670fc24702042d4300ecd9c72e293bb5/Screenshot%202025-05-17%20172043.png" width="30%" style="margin:10px"/>
+  <img src="https://github.com/NguyenThanhTin23/GIT_TEST/blob/20f25ce3670fc24702042d4300ecd9c72e293bb5/Screenshot%202025-05-17%20172056.png" width="30%" style="margin:10px"/>
+  <img src="https://github.com/NguyenThanhTin23/GIT_TEST/blob/20f25ce3670fc24702042d4300ecd9c72e293bb5/Screenshot%202025-05-17%20172114.png" width="30%" style="margin:10px"/>
+</p>
 ________________________________________
 2.3. Các thuật toán Tìm kiếm cục bộ
 Tìm kiếm cục bộ (local search) là nhóm các thuật toán không xây dựng toàn bộ cây tìm kiếm, mà chỉ quan tâm đến một hoặc vài trạng thái tại một thời điểm. Đây là cách tiếp cận hiệu quả trong các không gian trạng thái rất lớn, nơi việc lưu trữ toàn bộ cây tìm kiếm là không khả thi.
