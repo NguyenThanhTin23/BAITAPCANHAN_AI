@@ -1,4 +1,5 @@
 ### **Nguyễn Thành Tin - 23110340**
+---------------------------------------------------------------------------------------------------------------------------------------
 ### **1. Mục tiêu**
 • Ứng dụng các thuật toán tìm kiếm trong trí tuệ nhân tạo (AI) để giải bài toán 8-Puzzle — một bài toán kinh điển về tìm kiếm trạng thái.  
 • So sánh hiệu quả giữa các thuật toán trong từng nhóm thuật toán  
@@ -9,35 +10,36 @@
 ### **2. Nội dung**
 ### **Các thành phần chính của một bài toán tìm kiếm**
 ### **- Không gian trạng thái (State Space)**
-  •	Là tập hợp tất cả các cấu hình hợp lệ của bảng 3x3, gồm các số từ 0 đến 8 (0 là ô trống).
-  •	Mỗi trạng thái là một hoán vị của các số này.
-  •	Tổng số trạng thái hợp lệ: 9! = 362,880, nhưng chỉ 181,440 trạng thái là giải được (do tính chất hoán vị chẵn/lẻ).
-- Trạng thái đầu (Initial State)
-  •	Là trạng thái ban đầu được cung cấp, ví dụ:
+- Là tập hợp tất cả các cấu hình hợp lệ của bảng 3x3, gồm các số từ 0 đến 8 (0 là ô trống).  
+- Mỗi trạng thái là một hoán vị của các số này.  
+- Tổng số trạng thái hợp lệ: 9! = 362,880, nhưng chỉ 181,440 trạng thái là giải được (do tính chất hoán vị chẵn/lẻ).
+### **- Trạng thái đầu (Initial State)**
+- Là trạng thái ban đầu được cung cấp, ví dụ:  
                 1 2 3
                 4 0 6
                 7 5 8
-  •	Trạng thái này là điểm bắt đầu cho quá trình tìm kiếm lời giải.
-- Trạng thái đích (Goal State)
-  •	Là trạng thái mong muốn đạt được, thường là:
+   Trạng thái này là điểm bắt đầu cho quá trình tìm kiếm lời giải.
+### **- Trạng thái đích (Goal State)**
+- Là trạng thái mong muốn đạt được, thường là:
                 1 2 3
                 4 5 6
                 7 8 0
-  •	Trạng thái này có thể thay đổi tùy yêu cầu bài toán, miễn sao hợp lệ.
-- Tập hành động (Action Set)
-  •	Tại mỗi trạng thái, ta có thể di chuyển ô trống (0) theo 4 hướng:
-    o	Lên (Up)
-    o	Xuống (Down)
-    o	Trái (Left)
-    o	Phải (Right)
-  •	Tổng số hành động hợp lệ phụ thuộc vào vị trí của ô trống (0). Ví dụ:
-    o	Nếu ô trống ở góc trên trái → chỉ có 2 hành động: phải, xuống.
-- Hàm kế tiếp (Successor Function)
-  •	Là hàm tạo ra trạng thái mới sau khi áp dụng một hành động cho trạng thái hiện tại.
-  •	Ví dụ: Di chuyển ô trống từ (1,1) lên (0,1) → tạo ra trạng thái mới.
-- Hàm chi phí thực tế (Cost Function)
-  •	Trong tìm kiếm không có thông tin (BFS, DFS), thường giả định mỗi bước di chuyển có chi phí bằng nhau, tức là Cost = 1 cho mỗi hành động.
-  •	Nếu áp dụng UCS, ta vẫn dùng g(n) = tổng số bước đi từ đầu đến trạng thái hiện tại.
+  - Trạng thái này có thể thay đổi tùy yêu cầu bài toán, miễn sao hợp lệ.
+### **- Tập hành động (Action Set)**
+- Tại mỗi trạng thái, ta có thể di chuyển ô trống (0) theo 4 hướng:
+    - **Lên** (Up)  
+    - **Xuống** (Down)  
+    - **Trái** (Left)  
+    - **Phải** (Right)  
+- Tổng số hành động hợp lệ phụ thuộc vào vị trí của ô trống (0).  
+Ví dụ: nếu ô trống ở góc trên trái → chỉ có 2 hành động: phải, xuống.
+### **- Hàm kế tiếp (Successor Function)**
+- Là hàm tạo ra trạng thái mới sau khi áp dụng một hành động cho trạng thái hiện tại.  
+- Ví dụ: Di chuyển ô trống từ (1,1) lên (0,1) → tạo ra trạng thái mới.
+### **- Hàm chi phí thực tế (Cost Function)**
+- Trong tìm kiếm không có thông tin (BFS, DFS), thường giả định mỗi bước di chuyển có chi phí bằng nhau, tức là `Cost = 1` cho mỗi hành động.  
+- Nếu áp dụng UCS, ta vẫn dùng `g(n)` = tổng số bước đi từ đầu đến trạng thái hiện tại.
+  
 2.1. Các thuật toán Tìm kiếm không có thông tin
 Trong lĩnh vực Trí tuệ nhân tạo, tìm kiếm không có thông tin (hay còn gọi là tìm kiếm mù) là một nhóm các thuật toán giải bài toán tìm kiếm trạng thái mà không sử dụng bất kỳ thông tin nào về khoảng cách tới mục tiêu. Thay vào đó, các thuật toán này dựa vào cấu trúc của không gian trạng thái và các phép biến đổi trạng thái, để lần lượt kiểm tra các khả năng.
 Các thuật toán này được gọi là “không có thông tin” vì không khai thác tri thức chuyên biệt nào của bài toán, chẳng hạn như không có hàm heuristic để định hướng việc mở rộng các trạng thái hứa hẹn hơn. Do đó, chúng thường tổng quát, dễ cài đặt nhưng cũng có thể kém hiệu quả trong những không gian trạng thái lớn hoặc sâu.
