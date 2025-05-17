@@ -71,7 +71,7 @@ Thay vào đó, các thuật toán này dựa vào:
     - Tìm thấy **trạng thái đích**, hoặc  
     - **Cạn kiệt** không gian tìm kiếm mà không có lời giải.
     - 
-### **Hình ảnh giải thuật:**
+### **Hình ảnh giải thuật**
 <table>
   <tr>
     <td align="center">
@@ -122,7 +122,7 @@ Thay vào đó, các thuật toán này dựa vào:
 - BFS tốn nhiều thời gian và bộ nhớ, hiệu quả thấp hơn IDS và UCS.
 - Tổng thể, IDS là lựa chọn tối ưu để cân bằng giữa tốc độ và độ tin cậy trong bài toán này.
 
----------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------
 
 ### **2.2. Tìm kiếm có thông tin (Informed Search)**
 
@@ -140,7 +140,7 @@ Trong lĩnh vực **Trí tuệ nhân tạo**, **tìm kiếm có thông tin** (*i
 - Trạng thái có giá trị **`f(n)` hoặc `h(n)` thấp hơn** sẽ được **ưu tiên mở rộng trước**.
 - Mục tiêu là **giảm số lượng trạng thái cần duyệt** và **rút ngắn thời gian tìm kiếm**.
 
-### **Hình ảnh giải thuật:**
+### **Hình ảnh giải thuật**
 <table>
   <tr>
     <td align="center">
@@ -168,6 +168,11 @@ Trong lĩnh vực **Trí tuệ nhân tạo**, **tìm kiếm có thông tin** (*i
   <img src="https://github.com/NguyenThanhTin23/GIT_TEST/raw/20f25ce3670fc24702042d4300ecd9c72e293bb5/Screenshot%202025-05-17%20172114.png" width="550"/>
 </p>
 
+## **Nhận xét**
+- **Greedy Best-First Search**: Dù chỉ mất khoảng **0.01 giây**, nhưng trung bình cần tới **60 bước**, cho thấy thuật toán **chỉ tập trung vào bước đi gần nhất**. Điều này có thể dẫn tới **lời giải không tối ưu** hoặc **dài hơn** về tổng thể. Phù hợp khi **tốc độ** là ưu tiên hàng đầu, tuy nhiên có khả năng **lời giải không ngắn** và có thể **đi đường vòng**.
+- **A\*** và **IDA\***: Tốn **ít thời gian hơn** và có **số bước trung bình thấp** (khoảng **23 bước**), phản ánh khả năng **tìm lời giải nhanh và tối ưu hơn** của hai thuật toán này. Cho kết quả **tốt hơn** về cả **thời gian thực hiện** và **độ dài đường đi**, là lựa chọn **cân bằng giữa tốc độ và tối ưu hóa**.
+
+----------------------------------------------------------------------------------------------------------------------------------------
 ________________________________________
 2.3. Các thuật toán Tìm kiếm cục bộ
 Tìm kiếm cục bộ (local search) là nhóm các thuật toán không xây dựng toàn bộ cây tìm kiếm, mà chỉ quan tâm đến một hoặc vài trạng thái tại một thời điểm. Đây là cách tiếp cận hiệu quả trong các không gian trạng thái rất lớn, nơi việc lưu trữ toàn bộ cây tìm kiếm là không khả thi.
