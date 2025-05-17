@@ -72,20 +72,23 @@ Thay vào đó, các thuật toán này dựa vào:
 ### **Hình ảnh giải thuật:**
 <table>
   <tr>
-    <td align="center" style="padding: 30px;">
+    <td align="center">
       <img src="https://github.com/NguyenThanhTin23/GIT_TEST/raw/20f25ce3670fc24702042d4300ecd9c72e293bb5/BFS.gif" width="150" /><br/>
       <b>BFS</b>
     </td>
-    <td align="center" style="padding: 30px;">
+    <td width="30"></td>  <!-- cột cách ra -->
+    <td align="center">
       <img src="https://github.com/NguyenThanhTin23/GIT_TEST/raw/20f25ce3670fc24702042d4300ecd9c72e293bb5/DFS.gif" width="150" /><br/>
       <b>DFS</b>
     </td>
-    <td align="center" style="padding: 30px;">
-      <img src="https://github.com/NguyenThanhTin23/GIT_TEST/raw/20f25ce3670fc24702042d4300ecd9c72e293bb5/UCS.gif" width="150" /><br/>
+    <td width="30"></td>
+    <td align="center">
+      <img src="https://github.com/NguyenThanhTin23/GIT_TEST/raw/20f25ce36702042d4300ecd9c72e293bb5/UCS.gif" width="150" /><br/>
       <b>UCS</b>
     </td>
-    <td align="center" style="padding: 30px;">
-      <img src="https://github.com/NguyenThanhTin23/GIT_TEST/raw/20f25ce3670fc24702042d4300ecd9c72e293bb5/IDS.gif" width="150" /><br/>
+    <td width="30"></td>
+    <td align="center">
+      <img src="https://github.com/NguyenThanhTin23/GIT_TEST/raw/20f25ce36702042d4300ecd9c72e293bb5/IDS.gif" width="150" /><br/>
       <b>IDS</b>
     </td>
   </tr>
