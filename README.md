@@ -18,9 +18,9 @@
 
 ### **- Trạng thái đầu (Initial State)**
 - Là trạng thái ban đầu được cung cấp, ví dụ:  
-1 2 3  
-4 0 6  
-7 5 8  
+            1 2 3  
+            4 0 6  
+            7 5 8  
    Trạng thái này là điểm bắt đầu cho quá trình tìm kiếm lời giải.
   
 ### **- Trạng thái đích (Goal State)**
