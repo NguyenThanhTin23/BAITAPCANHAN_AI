@@ -301,7 +301,7 @@ Trong lĩnh vực **Trí tuệ nhân tạo**, **tìm kiếm có thông tin** (*i
 - AND-OR: Không thành công, thất bại 100%, thời gian trung bình 0 giây.
 - Sensorless: tỉ lệ hoàn thành thấp chỉ 33% , thời gian trung bình 0 giây.
 - Partial: Không thành công, thất bại 100%, thời gian trung bình 0 giây.
-### **Nhìn chung, các phương pháp này chưa phù hợp hoặc chưa tối ưu trong thử nghiệm -> Cần xem xét lại cách áp dụng, điều chỉnh tham số hoặc dữ liệu để nâng cao hiệu quả.
+### Nhìn chung, các phương pháp này chưa phù hợp hoặc chưa tối ưu trong thử nghiệm -> Cần xem xét lại cách áp dụng, điều chỉnh tham số hoặc dữ liệu để nâng cao hiệu quả.
 
 ----------------------------------------------------------------------------------------------------------------------------------------
 
