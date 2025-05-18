@@ -25,9 +25,11 @@
   
 ### **- Trạng thái đích (Goal State)**
 - Là trạng thái mong muốn đạt được, thường là:
+  
   1 2 3  
   4 5 6  
   7 8 0
+  
   - Trạng thái này có thể thay đổi tùy yêu cầu bài toán, miễn sao hợp lệ.
 
 ### **- Tập hành động (Action Set)**
@@ -259,7 +261,7 @@ Trong lĩnh vực **Trí tuệ nhân tạo**, **tìm kiếm có thông tin** (*i
 - Các thuật toán **GA**, **SHC**, **S_AHC**, **Stochastic** đều có **thời gian xử lý cực nhanh**, trung bình **chưa đến 0.01 giây**.Tuy nhiên, **tỷ lệ thành công của các thuật toán này chỉ dao động từ 40% đến 50%**, do đó phù hợp với các bài toán **ưu tiên tốc độ hơn tối ưu tuyệt đối**.
 - Riêng nhóm **Hill Climbing** có tỷ lệ thành công **thấp hơn** so với các thuật toán khác, nhưng vẫn giữ được ưu điểm về **tốc độ**.
   
------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------
 
 ### **2.4. Tìm kiếm trong môi trường phức tạp**
 ### **Đặc điểm**
@@ -301,7 +303,7 @@ Trong lĩnh vực **Trí tuệ nhân tạo**, **tìm kiếm có thông tin** (*i
 - Partial: Không thành công, thất bại 100%, thời gian trung bình 0 giây.
 Nhìn chung, các phương pháp này chưa phù hợp hoặc chưa tối ưu trong thử nghiệm -> Cần xem xét lại cách áp dụng, điều chỉnh tham số hoặc dữ liệu để nâng cao hiệu quả.
 
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------
 
 ### **2.5. Tìm kiếm trong môi trường có ràng buộc (Constraint Satisfaction Problem - CSP)**
 ### **Đặc điểm***
@@ -349,7 +351,7 @@ Nhìn chung, các phương pháp này chưa phù hợp hoặc chưa tối ưu tr
 - Backtracking: Thành công 100% với thời gian trung bình là 1.78 giây. Đây là phương pháp hiệu quả rõ rệt, đạt kết quả hoàn chỉnh trong thời gian khá nhanh so với các phương pháp khác.
 - AC3: Không thành công, thất bại 100%, thời gian trung bình cũng là 0 giây. Có thể do chưa đủ hoặc dữ liệu chưa phù hợp để phương pháp này thể hiện hiệu quả trong thử nghiệm này.
 
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------
 
 ### **2.6. Tìm kiếm học tăng cường (Reinforcement Learning Search)**
 ### **Đặc điểm**
@@ -384,7 +386,7 @@ Nhìn chung, các phương pháp này chưa phù hợp hoặc chưa tối ưu tr
 ### **Nhận xét**
 - Hiệu suất Q-Learning khá tốt: tỷ lệ thành công 66.7% và thất bại 33.3%. Thời gian trung bình để đạt thành công là 13.02 giây, có thể cần tối ưu thêm để nâng cao hiệu quả.
 
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------
 
 ### **3. Kết luận**
 - Nắm vững nguyên lý hoạt động và cách áp dụng các thuật toán tìm kiếm trong không gian trạng thái, giúp nâng cao khả năng giải quyết các bài toán phức tạp.
