@@ -30,7 +30,7 @@
   4 5 6  
   7 8 0
   
-  - Trạng thái này có thể thay đổi tùy yêu cầu bài toán, miễn sao hợp lệ.
+  Trạng thái này có thể thay đổi tùy yêu cầu bài toán, miễn sao hợp lệ.
 
 ### **- Tập hành động (Action Set)**
 - Tại mỗi trạng thái, ta có thể di chuyển ô trống (0) theo 4 hướng:
@@ -184,7 +184,7 @@ Trong lĩnh vực **Trí tuệ nhân tạo**, **tìm kiếm có thông tin** (*i
 - Lặp lại việc **di chuyển sang trạng thái lân cận tốt hơn**.
 - Kết thúc khi **không thể cải thiện thêm** (rơi vào tối ưu cục bộ).
 
-### **Giải pháp **
+### **Giải pháp**
 - **Tối ưu dần thông qua trạng thái lân cận**:
   - Khởi đầu từ một **trạng thái ngẫu nhiên**.
   - Đánh giá và chọn **trạng thái lân cận tốt hơn** để di chuyển.
@@ -301,7 +301,7 @@ Trong lĩnh vực **Trí tuệ nhân tạo**, **tìm kiếm có thông tin** (*i
 - AND-OR: Không thành công, thất bại 100%, thời gian trung bình 0 giây.
 - Sensorless: tỉ lệ hoàn thành thấp chỉ 33% , thời gian trung bình 0 giây.
 - Partial: Không thành công, thất bại 100%, thời gian trung bình 0 giây.
-Nhìn chung, các phương pháp này chưa phù hợp hoặc chưa tối ưu trong thử nghiệm -> Cần xem xét lại cách áp dụng, điều chỉnh tham số hoặc dữ liệu để nâng cao hiệu quả.
+### **Nhìn chung, các phương pháp này chưa phù hợp hoặc chưa tối ưu trong thử nghiệm -> Cần xem xét lại cách áp dụng, điều chỉnh tham số hoặc dữ liệu để nâng cao hiệu quả.
 
 ----------------------------------------------------------------------------------------------------------------------------------------
 
